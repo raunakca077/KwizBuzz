@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <title>KwizBuzz</title>
+    </head>
+    <body>
+        <h1><%=quiz.quizId%></h1>
+        <h3><i><%=quiz.quizDescription%></i></h3>
+    </body>
+    <footer>
+       <p> <a href="/createQuiz/<%=quiz.id%>/edit">Edit</a></p>
+
+       <form action="/createQuiz/<%=quiz.id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+       </form>
+       <br>
+        <a href="/createQuiz">Back</a>
+    </footer>
+</html>
