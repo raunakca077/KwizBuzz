@@ -47,7 +47,7 @@ module.exports = [
   },
   {
     quizId: "3",
-    quizTitle: "History Quiz",
+    quizTitle: "Civics Quiz",
     quizDescription: "This quiz will test your knowledge of basic history concepts.",
     quizType: "Long Answer",
     quizWindow: {},
