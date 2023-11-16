@@ -1,0 +1,28 @@
+/* Add appropriate styles for your Home component */
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .text-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-decoration: solid;
+    
+    
+
+  }
+  
+  .typing-animation {
+    display: inline-block;
+    animation: typing 4s steps(20) infinite forwards; /* Adjust timing and iterations */
+    animation-fill-mode: forwards; /* Keep the final state after animation */
+  }
+  
