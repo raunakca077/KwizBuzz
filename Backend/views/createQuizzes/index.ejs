@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <title>Quiz</title>
-    </head>
-    <body>
+<%layout("layouts/boilerplate.ejs")%>
         <h1>All Quizzes</h1>
         <ul>
         <%for(let c of quiz){%>
@@ -13,5 +7,4 @@
 
     </ul>
     <button><a href="createQuiz/new">New Quiz</a></button>
-    </body>
-</html>
+    
