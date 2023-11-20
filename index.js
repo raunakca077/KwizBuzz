@@ -1,22 +1,17 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const signInForm = document.querySelector('.scale-100');
-const signUpForm = document.querySelector('.scale-0');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-const signUpLink = document.querySelector('.signUpBtn-link');
-const signInLink = document.querySelector('.signInBtn-link');
-
-signUpLink.addEventListener('click', () => {
-  signInForm.classList.remove('scale-100');
-  signInForm.classList.add('scale-0');
-
-  signUpForm.classList.remove('scale-0');
-  signUpForm.classList.add('scale-100');
-});
-
-signInLink.addEventListener('click', () => {
-  signUpForm.classList.remove('scale-100');
-  signUpForm.classList.add('scale-0');
-
-  signInForm.classList.remove('scale-0');
-  signInForm.classList.add('scale-100');
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

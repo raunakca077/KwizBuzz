@@ -1,0 +1,51 @@
+*{
+  margin:0;
+  padding: 0;
+  text-decoration: none;
+}
+.container{
+  display: flex;
+}
+main{
+  width: 100%;
+  padding: 20px;
+}
+.sidebar{
+  background: rgb(250, 245, 245);
+  color: rgb(96, 145, 105);
+  height: 100vh;
+  width: 300px;
+}
+.top_section{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.logo{
+  font-size: 40px;
+}
+.bar{
+  display: flex;
+  font-size: 25px;
+  margin-left: 40px;
+  color: rgb(30, 33, 30);
+}
+.link{
+  display: flex;
+  color: black;
+  padding: 12px 15px;
+  gap:15px;
+  transition: all 0.5s;
+}
+.link:hover{
+  background: rgb(188, 234, 188);
+  color: darkblue;
+  transition: all 0.5s;
+}
+.active{
+  background: rgb(188, 234, 188);
+  color: darkblue;
+}
+.icon,.link_text{
+  font-size:18px;
+}
