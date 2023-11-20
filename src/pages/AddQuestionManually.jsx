@@ -1,11 +1,11 @@
 import React from "react";
-const Quiz_Types=()=>{
+const add=()=>{
     return (
         <div>
             <h1>
-                Quiz_Types.
+                adding question.
             </h1>
         </div>
     );
 };
-export default Quiz_Types;
+export default add;

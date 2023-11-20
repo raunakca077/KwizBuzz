@@ -6,7 +6,6 @@ import { IoMdSettings } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
 
-
 function SideBar({children}) {
     const menuItem=[
         // {
@@ -16,22 +15,22 @@ function SideBar({children}) {
         // },
         {
             path:"/Basic_Settings",
-            name:"Basic_Settings",
+            name:"Basic Settings",
             icon:<IoMdSettings/>
         },
         {
             path:"/Question_Manager",
-            name:"Question_Manager",
+            name:"Question Manager",
             icon:<SiGoogletagmanager/>
         },
         {
             path:"/Quiz_Timing",
-            name:"Quiz_Timing",
+            name:"Quiz Timing",
             icon:<MdOutlineTimer/>
         },
         {
             path:"/Quiz_Types",
-            name:"Quiz_Types",
+            name:"Quiz Types",
             icon:<IoOptionsSharp/>
         },
     ]
@@ -48,7 +47,7 @@ function SideBar({children}) {
             </div>
             {
                 menuItem.map((item,index)=>(
-                    <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                    <NavLink to={item.path} key={index} className="link text-decoration-none" activeclassName="active">
                         <div className="icon">{item.icon}</div>
                         <div className="link_text">{item.name}</div>
                     </NavLink>

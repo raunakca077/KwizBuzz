@@ -1,11 +1,11 @@
 import React from "react";
-const Quiz_Timing=()=>{
+const generate=()=>{
     return (
         <div>
             <h1>
-                Quiz_Timing.
+                generate the question using ai.
             </h1>
         </div>
     );
 };
-export default Quiz_Timing;
+export default generate;

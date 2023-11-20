@@ -6,6 +6,12 @@ import Quiz_Timing from './pages/Quiz_Timing';
 import Quiz_Types from './pages/Quiz_Types';
 import Question_Manager from './pages/Question_Manager';
 import Basic_Settings from './pages/Basic_Settings';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import {QuestionGenerator} from './pages/QuestionGenerator';
+// import {AddQuestionManually } from './pages/AddQuestionManually';
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +22,10 @@ function App() {
             <Route path="/Question_Manager"element={<Question_Manager/>}/>
             <Route path="/Quiz_Timing"element={<Quiz_Timing/>}/>
             <Route path="/Quiz_Types"element={<Quiz_Types/>}/>
+
+            <Route path="/Question_Manager" element={<Question_Manager />}/>
+            {/* <Route path="generate" element={<QuestionGenerator />} />
+            <Route path="add" element={<AddQuestionManually />} /> */}
         </Routes>
       </SideBar>
     </BrowserRouter>
