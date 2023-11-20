@@ -1,75 +1,65 @@
 const express=require("express");
 const app=express();
+module.exports=app;
 const path=require("path")
-const mO=require("method-override")
+const mO=require("method-override")     //used for put and delete routes
+// const ejsMate=require("ejs-mate")       //used for partials layout
+const ExpressError=require("./utils/ExpressError.js") 
+const session =require("express-session")
+const cookieParser=require("cookie-parser")
+
+const {config} =require("dotenv")
+config(
+    {path:"./data/config.env"}
+)
+app.use(express.json())
+app.use(cookieParser())
+
+const sessionConfig=        //will be in dotenv
+{
+secret:"mysecret",
+resave:false,
+saveUnintialized:true,
+expires:Date.now()+5*1000 , //1000=1 sec
+}
+app.use(session(sessionConfig))
+
+const quizRoute=require("./routes/quizzes.js")
+const userRoute=require("./routes/users.js")
+
+app.use('/api/createQuiz',quizRoute)
+app.use('/api/users',userRoute)
+
+// app.engine("ejs",ejsMate)
+//  app.use(express.urlencoded({extended:true})) //middleware used for json conversion
 
 
-
-const mongoose = require('mongoose');
-app.use(express.urlencoded({extended:true})) //middleware
 app.use(mO("_method"))
-const createQuiz=require("./models/CreateQuiz.js")
 
-mongoose.connect('mongodb://127.0.0.1:27017/quizDB',{
-    useNewUrlParser:true,
-    // useCreateIndex:true,
-    useUnifiedTopology:true
-})
-
-const db=mongoose.connection;
-db.on("error",console.error.bind(console,"Fault in Connecting"));
-db.once("open",()=>{console.log("DB is Connected")})
-
-
-
-app.set("views",path.join(__dirname,"views"))
-app.set("view engine","ejs")
+app.use(express.static(path.join(__dirname,"public")))
+// app.set("views",path.join(__dirname,"views"))
+// app.set("view engine","ejs")
 
 app.get("/",(req,res)=>{
     res.render("home");
 })
 
-app.get("/createQuiz",async(req,res)=>{
-    const quiz=await createQuiz.find({})
-    res.render("createQuizzes/index.ejs",{quiz});
+
+
+app.use((err,req,res,next)=>{
+    const{sts=500,msg}=err;
+    if(!msg)
+    {
+        msg="wrong"
+    }
+    res.status(sts).send(msg)
+   
 })
 
-app.get("/createQuiz/new",async(req,res)=>{
-    
-    res.render("createQuizzes/new.ejs");
-})
-
-app.post("/createQuiz",async(req,res)=>{
-    
-    const newQuiz=new createQuiz(req.body.createQuiz);
-    await newQuiz.save();
-    res.redirect(`/createQuiz/${newQuiz.id}`)
-})
-
-app.get("/createQuiz/:id",async(req,res)=>{
-    const {id}=req.params
-   const quiz=await createQuiz.findById(id)
-    res.render("createQuizzes/show.ejs",{quiz});
-})
-
-app.get("/createQuiz/:id/edit",async(req,res)=>{
-    const {id}=req.params
-   const quiz=await createQuiz.findById(id)
-    res.render("createQuizzes/edit.ejs",{quiz});
-})
-
-app.put("/createQuiz/:id",async(req,res)=>{
-    const {id}=req.params
-  await createQuiz.findByIdAndUpdate(id,{...req.body.createQuiz})
-    res.redirect(`/createQuiz/${id}`);
-console.log("it works")
-})
-
-app.delete("/createQuiz/:id",async(req,res)=>{
-    const {id}=req.params
-  await createQuiz.findByIdAndDelete(id)
-    res.redirect(`/createQuiz`);
-})
+// app.all('*',(req,res,next)=>
+// {
+//     next(new ExpressError("err",656))
+// })
 
 
-app.listen(7700,()=>{console.log("serving on 7700")})
+
