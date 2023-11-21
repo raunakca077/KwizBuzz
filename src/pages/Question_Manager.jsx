@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import AddQuestionManually from "./AddQuestionManually";
 
 const QuestionManager = () => {
   return (
@@ -15,15 +17,20 @@ const QuestionManager = () => {
         <Col>
           <Row className="m-0 p-0">
             <Col className="pr-3">
-              <Link to="./QuestionGenerator">
+              <Link to="/QuestionGenerator">
                 <Button className="theme-bg-primary outline-none border-0 float-end">Generate using AI</Button>
               </Link>
             </Col>
 
             <Col className="pl-3">
-              <Link to="./AddQuestionManually">
+              {/* <Link to="./AddQuestionManually">
                 <Button className="theme-bg-primary outline-none border-0">Add Question</Button>
-              </Link>
+              </Link> */}
+              {
+                <NavLink to='/AddQuestionManually' activeClassName="active">
+                  <Button className="theme-bg-primary outline-none border-0">Add Question</Button>
+                </NavLink>
+             }
             </Col>
           </Row>
         </Col>

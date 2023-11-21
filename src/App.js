@@ -6,6 +6,7 @@ import Quiz_Timing from './pages/Quiz_Timing';
 import Quiz_Types from './pages/Quiz_Types';
 import Question_Manager from './pages/Question_Manager';
 import Basic_Settings from './pages/Basic_Settings';
+import AddQuestionManually from './pages/AddQuestionManually';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,7 +18,7 @@ function App() {
     <BrowserRouter>
       <SideBar>
         <Routes>
-            <Route path="/Dashboard"element={<Dashboard/>}/>
+            <Route path="/AddQuestionManually"element={<AddQuestionManually/>}/>
             <Route path="/Basic_Settings"element={<Basic_Settings/>}/>
             <Route path="/Question_Manager"element={<Question_Manager/>}/>
             <Route path="/Quiz_Timing"element={<Quiz_Timing/>}/>

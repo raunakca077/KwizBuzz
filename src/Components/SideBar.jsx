@@ -9,8 +9,8 @@ import { IoOptionsSharp } from "react-icons/io5";
 function SideBar({children}) {
     const menuItem=[
         // {
-        //     path:"/",
-        //     name:"Dashboard",
+        //     path:"/AddQuestionManually",
+        //     name:"Add Question",
         //     icon:<FaTh/>
         // },
         {
@@ -34,16 +34,16 @@ function SideBar({children}) {
             icon:<IoOptionsSharp/>
         },
     ]
-    const[isOpen,setIsOpen]=useState(false);
-    const toggle=()=>{setIsOpen(!isOpen)};
+    // const[isOpen,setIsOpen]=useState(false);
+    // const toggle=()=>{setIsOpen(!isOpen)};
     return (
     <div className="container">
         <div className="sidebar">
             <div className="top_section">
                 <h1 className="logo">KrizKroz</h1>
-                <div className="bar">
+                {/* <div className="bar">
                     <FaBars onClick={toggle}/>
-                </div>
+                </div> */}
             </div>
             {
                 menuItem.map((item,index)=>(
