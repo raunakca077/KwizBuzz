@@ -47,7 +47,7 @@ const AnswerSheetPanel = () => {
       </Row>
       <Row>
         <Col>
-          <Card className='theme-bg-base'>
+          <Card className='theme-bg-base border-0'>
             <Card.Body>
               <Card.Title>{thankYouMessage}</Card.Title>
               {/* Result Percentage */}
@@ -85,5 +85,4 @@ const AnswerSheetPanel = () => {
     </Container>
   );
 };
-
 export default AnswerSheetPanel;

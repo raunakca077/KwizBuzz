@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const AddQuestionManually = () => {
   const [questions, setQuestions] = useState([
@@ -114,9 +115,11 @@ const AddQuestionManually = () => {
               Add Another Question
             </Button>
 
-            <Button className="theme-bg-primary outline-none border-0" type="submit">
-              Save & Next
-            </Button>
+            <NavLink to='/Quiz_Timing' activeClassName="active">
+              <Button className="theme-bg-primary outline-none border-0 w-50 m-auto">
+          Save & Next</Button>
+            </NavLink>
+        
           </Form>
         </Col>
       </Row>

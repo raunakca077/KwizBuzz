@@ -2,6 +2,7 @@ import React from "react";
 // import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Basic_Settings = () => {
 //   const history = useHistory();
@@ -44,12 +45,14 @@ const Basic_Settings = () => {
         </Col>
       </Row>
       <Row>
-        <Button className="theme-bg-primary outline-none border-0 w-50 m-auto">
-          Save & Next
-        </Button>
+          {
+            <NavLink to='/Question_Manager' activeClassName="active">
+              <Button className="theme-bg-primary outline-none border-0 w-50 m-auto">
+          Save & Next</Button>
+            </NavLink>
+           }
       </Row>
     </Container>
   );
 };
-
 export default Basic_Settings;
