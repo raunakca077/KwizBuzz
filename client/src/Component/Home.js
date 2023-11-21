@@ -1,50 +1,52 @@
 import React from 'react'
-import HomeVideo from '../assets/HomeVideo.mp4';
+// import HomeVideo from '../assets/HomeVideo.mp4';
+ 
 import { Link } from 'react-router-dom';
 import './Home.css';
+import CustomButton from './CustomButton';
+import Images from '../Images';
+
+
 
 const Home = () => {
   return (
     <div>
         {/* ------------------Video BackGround-------------- */}
-    <div className='relative w-full h-screen '>
-      <video src={HomeVideo} autoPlay muted loop className="w-full h-full object-cover absolute "/>
+    <div className='relative w-full h-screen bg-[#014751]'>
+      {/* <video src={HomeVideo} autoPlay muted loop className="w-full h-full object-cover absolute "/> */}
        {/* ----------------------Navbar------------------ */}
-      <div className='absolute  left-0 w-full z-10 flex justify-between items-center p-4 text-white
-         bg-black bg-opacity-30  shadow-md shadow-black top-3'>
+      
           
-        <div className='text-white font-bold text-[40px] hover:translate-x-4 '>
-          Kwizz?
-        </div>
-        <div className=' flex space-x-8 text-white font-bold text-[20px] mr-8 '>
-         <Link className=' ' to={"/"}>Home</Link>
-         <Link className='' to={"/Dashboard"}>Dashboard</Link>
-         <Link className='' to={"/Contact"}>Contact</Link>
-         <Link className='' to={"/SignUp"}>About</Link>
-         <Link className='' to={"/Login"}>Login</Link>
-         <Link className='' to={"/SignUp"}>SignUp</Link>
-
-        </div>
+        
        
-    </div> 
-      <div className='absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 
-      text-center text-white font-bold  '>
-      <div className='text-animation'>
-          Welcome to the <span className='typing-animation'>Land of Quizzes</span>
-        </div>
-      </div>
+    
+      
        {/* ------------DIV-2----------- */}
-       <div className='flex flex-col bg-black bg-opacity-70 h-60 w-[500px] 
-       absolute left-5 top-[40%] z-10 rounded-lg'>
-  <h1>Hello</h1>
-  <p>Jee</p>
-  <button>Button</button>
+       <div className='flex flex-col w-full h-96  top-4 '>
+       <div className='flex flex-col h-80 w-[500px]  absolute left-5 top-[30%] z-10 rounded-lg gap-7'>
+  <h1 className='text-white text-5xl font-bold '>Turn your quizzes into success stories</h1>
+  <p className=' text-slate-300 text-2xl '>AI-powered skills and knowledge assessment software, serving 2.5M+ business and educational users worldwide.</p>
+  <CustomButton></CustomButton>
 </div>
-
+<div className='relative left-[50%] top-[60%] '>
+            <Images />
+          </div>
+</div>
     </div>
     {/* Animated Background Over */}
-    <div >
-     
+    {/* -----------------------------Code Div------------------------ */}
+    <div className='flex flex-row bg-purple-200 gap-[15%]' >
+    <div className='flex flex-col gap-3 mt-3 '>
+       <h1 className=' text-3xl font-bold text-[#014751]'>Here to take a test?</h1>
+       <p className='text-black opacity-80'>No registration required. Enter your access code and start.</p>
+    </div>
+    <div class="flex flex-row gap-4  ">
+  <label class="mb-4">
+    <input name="myInput" placeholder="Enter the access code" className="border-2 border-gray-300  
+    px-4 py-2 focus:outline-none focus:border-blue-500 mt-4 w-[400px] rounded-lg" />
+  </label>
+  <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md h-11 mt-4 focus:outline-none">Start Your Test</button>
+</div>
     </div>
     </div>
     
