@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 const AddQuestionManually = () => {
   const [questions, setQuestions] = useState([
-    { id: 1, question: '', answer: '', answerType: 'text' }, // Default question
+    { id: 1, question: '', answer: '', answerType: 'text', choices: [] }, // Default question
   ]);
 
   const handleQuestionChange = (id, field, value) => {
@@ -13,8 +13,25 @@ const AddQuestionManually = () => {
     setQuestions(updatedQuestions);
   };
 
+  const handleAddChoice = (id) => {
+    const updatedQuestions = questions.map((q) =>
+      q.id === id ? { ...q, choices: [...q.choices, ''] } : q
+    );
+    setQuestions(updatedQuestions);
+  };
+
+  const handleChoiceChange = (id, index, value) => {
+    const updatedQuestions = questions.map((q) =>
+      q.id === id ? { ...q, choices: q.choices.map((choice, i) => (i === index ? value : choice)) } : q
+    );
+    setQuestions(updatedQuestions);
+  };
+
   const handleAddQuestion = () => {
-    setQuestions([...questions, { id: questions.length + 1, question: '', answer: '', answerType: 'text' }]);
+    setQuestions([
+      ...questions,
+      { id: questions.length + 1, question: '', answer: '', answerType: 'text', choices: [] },
+    ]);
   };
 
   const handleSubmit = (event) => {
@@ -41,6 +58,30 @@ const AddQuestionManually = () => {
                     onChange={(e) => handleQuestionChange(q.id, 'question', e.target.value)}
                   />
                 </Form.Group>
+
+                {q.answerType === 'mcq' && (
+                  <>
+                    <Form.Group controlId={`choices-${q.id}`} className='mb-3'>
+                      <Form.Label>Choices:</Form.Label>
+                      {q.choices.map((choice, index) => (
+                        <div key={index} className='mb-2'>
+                          <Form.Control
+                            type='text'
+                            placeholder={`Enter choice ${index + 1}`}
+                            value={choice}
+                            onChange={(e) => handleChoiceChange(q.id, index, e.target.value)}
+                          />
+                        </div>
+                      ))}
+                      <Button
+                        className="theme-bg-primary outline-none border-0"
+                        onClick={() => handleAddChoice(q.id)}
+                      >
+                        Add Another Choice
+                      </Button>
+                    </Form.Group>
+                  </>
+                )}
 
                 <Form.Group controlId={`answer-${q.id}`} className='mb-3'>
                   <Form.Label>Answer {q.id}:</Form.Label>

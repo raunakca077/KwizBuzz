@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button ,Row,Col} from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const Quiz_Timing = () => {
   const [totalTimeOption, setTotalTimeOption] = useState('decide');
@@ -36,36 +37,50 @@ const Quiz_Timing = () => {
       <Container fluid>
         <h1>TEST DURATION</h1>
       <Form onSubmit={handleSubmit}>
+        {/* //
         <Form.Group controlId="totalTimeOption" className='mb-3'>
           <Form.Label>Select test duration measuring method:</Form.Label>
           <Form.Control as="select" value={totalTimeOption} onChange={handleTotalTimeOptionChange}>
             <option value="decide">Option to decide</option>
             {/* Add more options if needed */}
-          </Form.Control>
-        </Form.Group>
+         
+        
 
-        {totalTimeOption === 'decide' && (
+        {/* {totalTimeOption === 'decide' && ( */}
           <Form.Group controlId="testCompletionTime" className='mb-3'>
-            <Form.Label>Time to complete the test (hh:mm):</Form.Label>
+            <Form.Label>Hour's (hh):</Form.Label>
             <Form.Control
-              type="text"
-              placeholder="Enter time in format hh:mm"
-              value={totalTime}
-              onChange={handleTotalTimeChange}
+              type="number"
+              placeholder="Enter time in format hh"
+              // value={totalTime}
+              // onChange={handleTotalTimeChange}
+            />
+            <Form.Label>Minute's (mm):</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter time in format mm"
+              // value={totalTime}
+              // onChange={handleTotalTimeChange}
+            />
+            <Form.Label>Seconds (ss):</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter time in format ss"
+              // value={totalTime}
+              // onChange={handleTotalTimeChange}
             />
           </Form.Group>
-        )}
+        
 
-        <Form.Group controlId="questionTimeLimitOption" className='mb-3'>
+        {/* <Form.Group controlId="questionTimeLimitOption" className='mb-3'>
           <Form.Label>Time limit for each test question measuring method:</Form.Label>
           <Form.Control as="select" value={questionTimeLimitOption} onChange={handleQuestionTimeLimitOptionChange}>
             <option value="decide">Option to decide</option>
             {/* Add more options if needed */}
-          </Form.Control>
-        </Form.Group>
+         
 
-        {questionTimeLimitOption === 'decide' && (
-          <Form.Group controlId="questionTimeLimit" className='mb-3'>
+        {/* {questionTimeLimitOption === 'decide' && (
+          < controlId="questionTimeLimit" className='mb-3'>
             <Form.Label>Time limit for each test question (mm:ss):</Form.Label>
             <Form.Control
               type="text"
@@ -73,11 +88,16 @@ const Quiz_Timing = () => {
               value={questionTimeLimit}
               onChange={handleQuestionTimeLimitChange}
             />
-          </Form.Group>
-        )}
-        <Button className="theme-bg-primary outline-none border-0 justify-content-center align-items-center" type="submit">
+           */}
+        
+        {/* <Button className="theme-bg-primary outline-none border-0 justify-content-center align-items-center" type="submit">
           Save & Next
-        </Button>
+        </Button> */}
+        {
+            <NavLink to='/QuizPortal' activeClassName="active">
+            <Button className="theme-bg-primary outline-none border-0" type="submit">Submit</Button>
+            </NavLink>
+        }
       </Form>
     </Container>
   );

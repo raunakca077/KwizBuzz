@@ -3,7 +3,7 @@ import {FaTh,FaBars}from "react-icons/fa";
 import { MdOutlineTimer } from "react-icons/md";
 import { SiGoogletagmanager } from "react-icons/si";
 import { IoMdSettings } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
 
 function SideBar({children}) {
@@ -28,14 +28,19 @@ function SideBar({children}) {
             name:"Quiz Timing",
             icon:<MdOutlineTimer/>
         },
-        {
-            path:"/Quiz_Types",
-            name:"Quiz Types",
-            icon:<IoOptionsSharp/>
-        },
+        // {
+        //     path:"/Quiz_Types",
+        //     name:"Quiz Types",
+        //     icon:<IoOptionsSharp/>
+        // },
     ]
     // const[isOpen,setIsOpen]=useState(false);
     // const toggle=()=>{setIsOpen(!isOpen)};
+
+    const location = useLocation();
+    console.log(location);
+    if(location.pathname === "/QuizPortal") return null;
+
     return (
     <div className="container">
         <div className="sidebar">

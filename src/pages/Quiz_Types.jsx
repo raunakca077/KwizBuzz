@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const Quiz_Type = () => {
   const [selectedType, setSelectedType] = useState('decide');
@@ -83,9 +84,14 @@ const Quiz_Type = () => {
             </div>
           )}
         </Row>
-          <Button className="theme-bg-primary outline-none border-0" type="submit">
+        {
+            <NavLink to='/QuizPortal' activeClassName="active">
+            <Button className="theme-bg-primary outline-none border-0" type="submit">Submit</Button>
+            </NavLink>
+        }
+          {/* <Button className="theme-bg-primary outline-none border-0" type="submit">
             Submit
-          </Button>
+          </Button> */}
       </Form>
     </Container>
   );

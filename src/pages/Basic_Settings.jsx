@@ -34,7 +34,7 @@ const Basic_Settings = () => {
         <Col>
           <Form>
             <Form.Group>
-              <Form.Label>Category</Form.Label>
+              <Form.Label>Description</Form.Label>
               <Form.Control 
                 type="text"
                 id="category"
