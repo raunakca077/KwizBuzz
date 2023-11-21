@@ -9,6 +9,7 @@ import AddQuestionManually from './pages/AddQuestionManually';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import QuizPortal from './pages/QuizPortal';
+import AnswerSheetPanel from './pages/AnswerSheetPanel';
 
 // import {QuestionGenerator} from './pages/QuestionGenerator';
 // import {AddQuestionManually } from './pages/AddQuestionManually';
@@ -19,8 +20,9 @@ function App() {
 
       <Routes>
         <Route path="/QuizPortal" element={<QuizPortal/>}/>
+        <Route path="/AnswerSheetPanel" element={<AnswerSheetPanel/>}/>
       </Routes>
-
+      
       <SideBar>
         <Routes>
             <Route path="/Basic_Settings"element={<Basic_Settings/>}/>

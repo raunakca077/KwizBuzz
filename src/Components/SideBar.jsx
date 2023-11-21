@@ -40,6 +40,7 @@ function SideBar({children}) {
     const location = useLocation();
     console.log(location);
     if(location.pathname === "/QuizPortal") return null;
+    if(location.pathname === "/AnswerSheetPanel") return null;
 
     return (
     <div className="container">
