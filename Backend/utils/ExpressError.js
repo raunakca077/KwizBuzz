@@ -3,8 +3,8 @@ class ExpressError extends Error
     constructor(msg,sts)
 {
     super();
-    this.msg=msg
-    this.sts=sts
+    this.message=msg
+    this.statusCode=sts
 }
     
 }
