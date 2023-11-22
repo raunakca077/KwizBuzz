@@ -34,70 +34,49 @@ const QuizTiming = () => {
   };
 
   return (
-      <Container fluid>
-        <h1>TEST DURATION</h1>
-      <Form onSubmit={handleSubmit}>
-        {/* //
-        <Form.Group controlId="totalTimeOption" className='mb-3'>
-          <Form.Label>Select test duration measuring method:</Form.Label>
-          <Form.Control as="select" value={totalTimeOption} onChange={handleTotalTimeOptionChange}>
-            <option value="decide">Option to decide</option>
-            {/* Add more options if needed */}
-         
-        
-
-        {/* {totalTimeOption === 'decide' && ( */}
-          <Form.Group controlId="testCompletionTime" className='mb-3'>
-            <Form.Label>Hour's (hh):</Form.Label>
+    <Container fluid className='mt-20'>
+      <h1 className="text-3xl font-bold mb-6">TEST DURATION</h1>
+      <Form onSubmit={handleSubmit} className='flex flex-col items-center'>
+        <Form.Group controlId="testCompletionTime" className='mb-6 w-[70%]'>
+          <div className="flex flex-col">
+            <Form.Label className='mb-2'>Hour's (hh):</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter time in format hh"
+              placeholder="hh"
+              className="w-full border rounded-md p-2 focus:outline-none focus:border-blue-500 mb-2"
               // value={totalTime}
               // onChange={handleTotalTimeChange}
             />
-            <Form.Label>Minute's (mm):</Form.Label>
+          </div>
+          <div className="flex flex-col">
+            <Form.Label className='mb-2'>Minute's (mm):</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter time in format mm"
+              placeholder="mm"
+              className="w-full border rounded-md p-2 focus:outline-none focus:border-blue-500 mb-2"
               // value={totalTime}
               // onChange={handleTotalTimeChange}
             />
-            <Form.Label>Seconds (ss):</Form.Label>
+          </div>
+          <div className="flex flex-col">
+            <Form.Label className='mb-2'>Seconds (ss):</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter time in format ss"
+              placeholder="ss"
+              className="w-full border rounded-md p-2 focus:outline-none focus:border-blue-500"
               // value={totalTime}
               // onChange={handleTotalTimeChange}
             />
-          </Form.Group>
-        
+          </div>
+        </Form.Group>
 
-        {/* <Form.Group controlId="questionTimeLimitOption" className='mb-3'>
-          <Form.Label>Time limit for each test question measuring method:</Form.Label>
-          <Form.Control as="select" value={questionTimeLimitOption} onChange={handleQuestionTimeLimitOptionChange}>
-            <option value="decide">Option to decide</option>
-            {/* Add more options if needed */}
-         
-
-        {/* {questionTimeLimitOption === 'decide' && (
-          < controlId="questionTimeLimit" className='mb-3'>
-            <Form.Label>Time limit for each test question (mm:ss):</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter time in format mm:ss"
-              value={questionTimeLimit}
-              onChange={handleQuestionTimeLimitChange}
-            />
-           */}
-        
-        {/* <Button className="theme-bg-primary outline-none border-0 justify-content-center align-items-center" type="submit">
-          Save & Next
-        </Button> */}
-        {
-            <NavLink to='/QuizPortal' activeClassName="active">
-            <Button className="theme-bg-primary outline-none border-0" type="submit">Submit</Button>
-            </NavLink>
-        }
+        <div className="flex justify-center">
+          <NavLink to='/QuizPortal' activeClassName="active">
+            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Submit
+            </Button>
+          </NavLink>
+        </div>
       </Form>
     </Container>
   );

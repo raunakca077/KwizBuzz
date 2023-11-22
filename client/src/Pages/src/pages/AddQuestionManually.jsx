@@ -42,27 +42,29 @@ const AddQuestionManually = () => {
   };
 
   return (
-    <Container fluid>
-      <h1 className=''>  Add Question Manually</h1>
+    <div className=''>
+    <Container fluid className='mt-20 w-[75%] ml-[16%]  '>
+      <h1 className='text-4xl mb-5'>Add Question Manually</h1>
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
             {questions.map((q) => (
-              <div key={q.id}>
+              <div key={q.id} className="mb-4 p-4 border border-gray-300 rounded-lg mt-16">
                 <Form.Group controlId={`question-${q.id}`} className='mb-3'>
-                  <Form.Label>Question {q.id}:</Form.Label>
+                  <Form.Label className="font-semibold text-lg">Question {q.id}:</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder={`Enter question ${q.id}`}
                     value={q.question}
                     onChange={(e) => handleQuestionChange(q.id, 'question', e.target.value)}
+                    className="w-full p-2 mt-2 border border-gray-300 rounded-md"
                   />
                 </Form.Group>
 
                 {q.answerType === 'mcq' && (
                   <>
                     <Form.Group controlId={`choices-${q.id}`} className='mb-3'>
-                      <Form.Label>Choices:</Form.Label>
+                      <Form.Label className="font-semibold text-lg">Choices:</Form.Label>
                       {q.choices.map((choice, index) => (
                         <div key={index} className='mb-2'>
                           <Form.Control
@@ -70,11 +72,12 @@ const AddQuestionManually = () => {
                             placeholder={`Enter choice ${index + 1}`}
                             value={choice}
                             onChange={(e) => handleChoiceChange(q.id, index, e.target.value)}
+                            className="w-full p-2 mt-2 border border-gray-300 rounded-md"
                           />
                         </div>
                       ))}
                       <Button
-                        className="theme-bg-primary outline-none border-0"
+                        className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
                         onClick={() => handleAddChoice(q.id)}
                       >
                         Add Another Choice
@@ -84,21 +87,23 @@ const AddQuestionManually = () => {
                 )}
 
                 <Form.Group controlId={`answer-${q.id}`} className='mb-3'>
-                  <Form.Label>Answer {q.id}:</Form.Label>
+                  <Form.Label className="font-semibold text-lg">Answer {q.id}:</Form.Label>
                   <Form.Control
-                    type={q.answerType === 'text' ? 'text' : 'number'} // Adjust based on answer types
+                    type={q.answerType === 'text' ? 'text' : 'number'}
                     placeholder={`Enter answer ${q.id}`}
                     value={q.answer}
                     onChange={(e) => handleQuestionChange(q.id, 'answer', e.target.value)}
+                    className="w-full p-2 mt-2 border border-gray-300 rounded-md"
                   />
                 </Form.Group>
 
                 <Form.Group controlId={`answerType-${q.id}`} className='mb-3'>
-                  <Form.Label>Answer Type {q.id}:</Form.Label>
+                  <Form.Label className="font-semibold text-lg">Answer Type {q.id}:</Form.Label>
                   <Form.Control
                     as="select"
                     value={q.answerType}
                     onChange={(e) => handleQuestionChange(q.id, 'answerType', e.target.value)}
+                    className="w-full p-2 mt-2 border border-gray-300 rounded-md"
                   >
                     <option value="text">Text</option>
                     <option value="mcq">Multiple Choice (MCQ)</option>
@@ -109,18 +114,20 @@ const AddQuestionManually = () => {
                 </Form.Group>
               </div>
             ))}
-
-            <Button className="theme-bg-primary outline-none border-0 m-3" onClick={handleAddQuestion}>
+              <div className='flex flex-row gap-6 mt-[5%]'>
+            <Button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none " onClick={handleAddQuestion}>
               Add Another Question
             </Button>
 
-            <Button className="theme-bg-primary outline-none border-0" type="submit">
+            <Button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none " type="submit">
               Save & Next
             </Button>
+            </div>
           </Form>
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 

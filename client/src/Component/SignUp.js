@@ -2,7 +2,12 @@ import React from 'react'
 import Register from '../assets/Register.jpg'
 import { NavLink } from 'react-router-dom'
 const SignUp = () => {
+
+  const submitHandler = (e) =>{
+      e.preventDefault();
+  };
   return (
+
     <div className='bg-slate-500 h-screen flex items-center justify-center'>
       {/* First Flex Container */}
       <div className='flex flex-row h-[85%] w-[80%] bg-white mt-14 rounded-lg shadow-md shadow-orange-200 
@@ -14,7 +19,7 @@ const SignUp = () => {
         <div className='w-1/2 p-8'>
           {/* Content for the second div */}
           <h2 className='text-3xl font-bold mb-4 ml-[30%]'>Sign Up</h2>
-          <form>
+          <form onSubmit={submitHandler}>
           <div className='flex flex-row gap-6 mt-9'>
                 <label htmlFor='name' className='text-xl'><i class="zmdi zmdi-account" ></i></label>
                 <input type="name" name='name' id='name' autoComplete='off' placeholder='Your Name'

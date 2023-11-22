@@ -1,6 +1,6 @@
 import React from "react";
  import { useHistory } from 'react-router-dom';
-
+ import SideBar from "../../../Component/SideBar";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 

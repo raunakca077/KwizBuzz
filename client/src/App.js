@@ -14,6 +14,7 @@ import QuestionManager from './Pages/src/pages/QuestionManager';
 import QuizTiming from './Pages/src/pages/QuizTiming';
 import QuizTypes from './Pages/src/pages/QuizTypes';
 import QuizPortal from './Pages/QuizPortal';
+import Admin from './Component/Admin';
 // react Routes
  
 
@@ -35,6 +36,7 @@ function App() {
        <Route path="/QuizTiming"element={<QuizTiming/>}/>
        <Route path="/QuizTypes"element={<QuizTypes/>}/>
        <Route path="/QuizPortal" element={<QuizPortal/>}/>
+       <Route path="/Admin" element={<Admin/>}/>
 
         </Routes> 
 

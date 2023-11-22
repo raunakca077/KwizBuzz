@@ -5,7 +5,7 @@ import { FaHistory } from "react-icons/fa";
 const QuizCard = () => {
   return (
     <div>
-    <div className='flex flex-row w-full gap-5 '>
+    <div className='flex flex-row w-full '>
     <div className=' shadow-sm shadow-black rounded-lg h-[150px] w-[50%] mt-8  '>
       {/*  */}
       <div className='flex flex-row gap-[60%] mt-4'>
@@ -49,7 +49,7 @@ const QuizCard = () => {
         
          
         </div>
-      <p className=' mt-6 mx-3'>View Past quiz attempt</p>
+      <p className=' mt-6 mx-3'></p>
     </div>
  </div>
 
