@@ -4,17 +4,20 @@ const Schema=mongoose.Schema
 
 const questionSchema=new Schema({
     question: {type:String,required:true},
-    options: [String],
-    correctAnswer: String,
-    difficultyLevel: String, // "Easy", "Medium", or "Hard"
-    category: String,
-    tags: [String],
-    timeLimit: Number,
+   
+  options:{
+      type  :Array,
+      default:[]
+  },
+  answerOption: {
+    type: Number,
+    required: true,
+    select:false
+},
+    
+        positiveScore: {type:Number,default:1},
+        negativeScore: {type:Number,default:-1}
 
-    scoring: {
-        pointsPerQuestion: Number,
-        penaltyPerIncorrectAnswer: Number
-      },
 
 });
 

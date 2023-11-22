@@ -7,6 +7,7 @@ const quizSchema=new Schema({
    quizTitle:{type:String,required:true},
    quizDescription :String,
    quizType:String,
+
    quizQuestion:[
     {type:Schema.Types.ObjectId,
     ref:"quizQuestion"

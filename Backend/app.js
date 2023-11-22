@@ -7,6 +7,7 @@ const mO=require("method-override")     //used for put and delete routes
 const ExpressError=require("./utils/ExpressError.js") 
 const session =require("express-session")
 const cookieParser=require("cookie-parser")
+const cors=require("cors")
 
 const {config} =require("dotenv")
 config(
@@ -14,6 +15,13 @@ config(
 )
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors(
+    {
+        origin:[process.env.FRONTEND_URI],
+        methos:["GET","PUT","PATCH","DELETE","POST"],
+        credentials:true,
+    }
+))
 
 const sessionConfig=        //will be in dotenv
 {
@@ -26,9 +34,12 @@ app.use(session(sessionConfig))
 
 const quizRoute=require("./routes/quizzes.js")
 const userRoute=require("./routes/users.js")
+const studentRoute=require("./routes/students.js")
+const {errorMiddleware}=require('./middlewares/error.js')
 
 app.use('/api/createQuiz',quizRoute)
 app.use('/api/users',userRoute)
+app.use('/api/students',studentRoute)
 
 // app.engine("ejs",ejsMate)
 //  app.use(express.urlencoded({extended:true})) //middleware used for json conversion
@@ -40,21 +51,10 @@ app.use(express.static(path.join(__dirname,"public")))
 // app.set("views",path.join(__dirname,"views"))
 // app.set("view engine","ejs")
 
-app.get("/",(req,res)=>{
-    res.render("home");
-})
 
 
 
-app.use((err,req,res,next)=>{
-    const{sts=500,msg}=err;
-    if(!msg)
-    {
-        msg="wrong"
-    }
-    res.status(sts).send(msg)
-   
-})
+app.use(errorMiddleware)
 
 // app.all('*',(req,res,next)=>
 // {
