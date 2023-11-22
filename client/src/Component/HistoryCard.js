@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Contact = () => {
+const HistoryCard = () => {
   return (
     <div>
-     
+      
     </div>
   )
 }
 
-export default Contact
+export default HistoryCard
