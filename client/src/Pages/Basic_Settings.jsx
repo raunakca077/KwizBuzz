@@ -1,17 +1,17 @@
 import React from "react";
- import { useHistory } from 'react-router-dom';
- import SideBar from "../../../Component/SideBar";
+// import { useHistory } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
-
-const BasicSettings = () => {
-  //  const history = useHistory();
+const Basic_Settings = () => {
+//   const history = useHistory();
 
   const handleSaveAndNext = () => {
     // Perform any necessary save logic here
-    
+
     // Navigate to the "/Question_Manager" route
-    //  history.push('/Question_Manager');
+    // history.push('/Question_Manager');
   };
 
   return (
@@ -45,12 +45,14 @@ const BasicSettings = () => {
         </Col>
       </Row>
       <Row>
-        <Button className="theme-bg-primary outline-none border-0 w-50 m-auto">
-          Save & Next
-        </Button>
+          {
+            <NavLink to='/Question_Manager' activeClassName="active">
+              <Button className="theme-bg-primary outline-none border-0 w-50 m-auto">
+          Save & Next</Button>
+            </NavLink>
+           }
       </Row>
     </Container>
   );
 };
-
-export default BasicSettings;
+export default Basic_Settings;

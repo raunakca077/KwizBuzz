@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SS1 from './assets/SS1.png'; // Import the image
 import SS2 from './assets/SS2.png'; // Import the second image
