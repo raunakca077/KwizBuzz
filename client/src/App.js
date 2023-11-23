@@ -8,12 +8,12 @@ import Login from './Component/Login';
 import SignUp from './Component/SignUp';
 import Navbar from './Component/Navbar';
 import CreateQuiz from './Component/CreateQuiz';
-import AddQuestionManually from './Pages/src/pages/AddQuestionManually';
-import BasicSettings from './Pages/src/pages/BasicSettings';
-import QuestionManager from './Pages/src/pages/QuestionManager';
-import QuizTiming from './Pages/src/pages/QuizTiming';
-import QuizTypes from './Pages/src/pages/QuizTypes';
-import QuizPortal from './Pages/QuizPortal';
+// import AddQuestionManually from './Pages/src/pages/AddQuestionManually';
+// import BasicSettings from './Pages/src/pages/BasicSettings';
+// import QuestionManager from './Pages/src/pages/QuestionManager';
+// import QuizTiming from './Pages/src/pages/QuizTiming';
+// import QuizTypes from './Pages/src/pages/QuizTypes';
+// import QuizPortal from './Pages/QuizPortal';
 import Admin from './Component/Admin';
 // react Routes
  
@@ -39,11 +39,6 @@ function App() {
        <Route path="/Admin" element={<Admin/>}/>
 
         </Routes> 
-
-        
-
-        
-
     </div>
   );
 }

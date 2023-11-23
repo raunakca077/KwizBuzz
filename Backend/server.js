@@ -1,5 +1,5 @@
 const app=require("./app.js")
-const {connectDB}=require('./data/database.js')
-connectDB();
+// const {connectDB}=require('./data/database.js')
+// connectDB();
 
-app.listen(process.env.PORT,()=>{console.log("Serving on "+process.env.PORT)})
+app.listen(process.env.PORT,()=>{console.log("Serving on 40s0")})
