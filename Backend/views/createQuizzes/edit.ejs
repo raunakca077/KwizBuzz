@@ -1,0 +1,32 @@
+   
+   <%layout("layouts/boilerplate.ejs")%>
+
+   
+   <form action="/createQuiz/<%=quiz.id %>?_method=PUT" method="POST">
+            <div>
+                <label for="quizId">Enter quiz ID</label>
+                <input type="text" name="createQuiz[quizId]" id="quizId" value="<%=quiz.quizId%>">
+            </div>
+            <div>
+                <label for="quizTitle">Enter quiz Title</label>
+                <input type="text" name="createQuiz[quizTitle]" id="quizTitle" value="<%=quiz.quizTitle%>">
+            </div>
+            <div>
+                <label for="quizType">Select quiz Type</label>
+                <select name="quizType" value="<%= %>">
+                    <option value="tf">T/F</option>
+                    <option value="mcq">MCQ</option>
+                   </select>
+                       </div>
+            <div>
+                <label for="quizDescription">Enter quiz Description</label>
+                <input type="text" name="createQuiz[quizDescription]" id="quizDescription" value="<%=quiz.quizDescription%>">
+            </div>
+    
+            <button>Update Quiz</button>
+    
+        </form>   
+        
+    <footer>
+        <a href="/createQuiz/<%=quiz.id%>">Back</a>
+    </footer>
