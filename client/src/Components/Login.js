@@ -26,7 +26,7 @@ const Login = () => {
           {/* Content for the second div */}
           <h2 className='text-3xl font-bold mb-4 ml-[30%]'>Login</h2>
           <form onSubmit={submitHandler}>
-          <div className='flex flex-row gap-6 mt-9'>
+          <div className='flex flex-row gap-6 mt-9 border-0'>
                 <label htmlFor='email' className='text-4xl'><i class="zmdi zmdi-account" ></i></label>
                 <input type="email" name='email' id='email' autoComplete='off' placeholder='Your Email'
                 value={email} onChange={(e)=>setEmail(e.target.value)}
@@ -44,8 +44,8 @@ const Login = () => {
                 justify-center w-[80%] ' />
                 </div>
 
-                <div className=" SignIn-link items-center justify-center pt-4   mt-6">
-                    <p className="text-[#000]"> <NavLink to='' className="signUpBtn-link text-[#4b4242] 
+                <div className=" SignIn-link items-center text-end pt-4  mr-5 mt-6">
+                    <p className="text-[#000]"> <NavLink to='' className="rounded-pill rounded-sm p-2 signUpBtn-link text-[#4b4242] 
                     font-semibold hover:underline ml-2 ">Forgot Password?</NavLink>
                         </p>
                 </div>
@@ -57,8 +57,8 @@ const Login = () => {
                 
               {/* <!--------Submit Button---------> */}
                 <button type="submit " className="relative w-[400px] h-[30px] ml-10
-                 bg-red-500 text-[16px] hover:bg-blue-900 ml-10
-                text-[#fff] cursor-pointer rounded-xl" >Sign In</button>
+                 theme-bg-secondary text-[20px] hover:bg-blue-900 ml-10
+                text-dark cursor-pointer rounded-xl" >Sign In</button>
 
 
 

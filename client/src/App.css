@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+:root {
+  --theme-primary: green;
+  --theme-seondary:rgb(188, 234, 188);
+  --Ai-color:#9867C5;
+  --base-primary:rgb(250, 245, 245);
+  --theme-trinary:#BEBFC5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* theme-bg-primary outline-none border-0 */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*{
+  margin:0;
+  padding: 0;
+  text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+main{
+  width: 100%;
+  padding: 20px;
+}
+.sidebar{
+  background: rgb(250, 245, 245);
+  color: rgb(96, 145, 105);
+  height: 100vh;
+  width: 400px;
+  /* margin: 0px; */
+}
+.theme-bg-base{
+  background: var(--base-primary) !important;
+}
+.theme-bg-trinary{
+  background: var(--theme-trinary);
+}
+.top_section{
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px 15px;
+}
+.logo{
+  font-size: 40px;
+}
+.bar{
+  display: none;
+  font-size: 25px;
+  margin-left: 40px;
+  color: rgb(30, 33, 30);
+}
+.link{
+  display: flex;
+  color: black;
+  padding: 12px 15px;
+  gap:15px;
+  transition: all 0.5s;
+}
+.link:hover{
+  background: var(--theme-seondary);
+  color: darkblue;
+  transition: all 0.5s;
+}
+.active{
+  background: var(--theme-seondary);
+  color: darkblue;
+}
+.icon,.link_text{
+  font-size:18px;
 }
 
-.App-link {
-  color: #61dafb;
+.theme-bg-secondary {
+  background: var(--theme-seondary) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.theme-bg-primary {
+  background: var(--theme-primary) !important;
 }
+
+.roomfac {
+  display: flex;
+  widtH: 60%;
+  margin: auto;
+}
+
+.navbar-link:hover {
+  color: red !important;
+}
+
+.p-text{
+  width:120px;
+}
+
+

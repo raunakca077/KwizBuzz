@@ -38,40 +38,6 @@ const QuizPortal = () => {
     setSelectedAnswer('');
   };
 
-
-//   const currentQuestion = questions[currentQuestionIndex];
-
-// Check if currentQuestion exists before rendering its properties
-const questionComponent = currentQuestion ? (
-  <div>
-    <div className='mt-3 mb-2'>
-      Question {currentQuestionIndex + 1}/{totalQuestions}
-    </div>
-    <Card className='theme-bg-base px-4 py-2 border-0'>
-      <Card.Body>
-        <Card.Title>{currentQuestion.question}</Card.Title>
-        {/* Options based on answer type */}
-        {currentQuestion.options.map((option, index) => (
-          <div key={index} className="form-check">
-            <input
-              type="radio"
-              className="form-check-input"
-              id={`option-${index}`}
-              value={option}
-              checked={selectedAnswer === option}
-              onChange={() => handleRadioChange(option)}
-            />
-            <label className="form-check-label" htmlFor={`option-${index}`}>
-              {option}
-            </label>
-          </div>
-        ))}
-      </Card.Body>
-    </Card>
-  </div>
-) : null; 
-  
-
   return (
     <Container fluid>
       {/* Header */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 
-const QuizType = () => {
+const Quiz_Type = () => {
   const [selectedType, setSelectedType] = useState('decide');
   const [defaultType, setDefaultType] = useState('multipleChoice'); // Set a default quiz type
   const [typesForQuestions, setTypesForQuestions] = useState([]);
@@ -97,4 +97,4 @@ const QuizType = () => {
   );
 };
 
-export default QuizType;
+export default Quiz_Type;
