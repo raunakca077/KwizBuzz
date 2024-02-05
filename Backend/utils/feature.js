@@ -6,7 +6,7 @@ module.exports.sendToken=(user,res,msg,statusCode)=>
 
 
     res.status(statusCode).cookie("token",token,{
-        httpOnly:true,
+        // httpOnly:true,
         maxAge:25*60*1000,
         // sameSite:"none",     //cant run on postman also chect for logout
         // secure:true

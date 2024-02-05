@@ -15,13 +15,7 @@ config(
 )
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors(
-    {
-        origin:[process.env.FRONTEND_URI],
-        methos:["GET","PUT","PATCH","DELETE","POST"],
-        credentials:true,
-    }
-))
+app.use(cors())
 
 const sessionConfig=        //will be in dotenv
 {
