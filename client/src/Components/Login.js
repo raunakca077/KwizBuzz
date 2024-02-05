@@ -1,17 +1,52 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Register from '../assets/Register.jpg'
 import { useState } from 'react';
 import axios from "axios";
 
 const Login = () => {
 
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
-  const submitHandler =(e)=>{
-      e.preventDefault();
-      console.log('submit');
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(formData.password.length<5)
+    {
+      alert('Password Length Can Be Too Small');
+      navigate('/Login'); 
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:7700/api/users/login', formData);
+  
+      if (response.data.success) {
+
+        const token = response.data.token;
+
+      // Save the token to local storage or wherever you prefer
+      localStorage.setItem('token', token);
+      alert(token)
+
+  
+
+        navigate('/Dashboard');
+      } else {
+        alert('this:');}
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   return (
     <div className='bg-slate-500 h-screen flex items-center justify-center'>
@@ -25,11 +60,12 @@ const Login = () => {
         <div className='w-1/2 p-8'>
           {/* Content for the second div */}
           <h2 className='text-3xl font-bold mb-4 ml-[30%]'>Login</h2>
-          <form onSubmit={submitHandler}>
+          <form onSubmit={handleSubmit}>
           <div className='flex flex-row gap-6 mt-9 border-0'>
                 <label htmlFor='email' className='text-4xl'><i class="zmdi zmdi-account" ></i></label>
                 <input type="email" name='email' id='email' autoComplete='off' placeholder='Your Email'
-                value={email} onChange={(e)=>setEmail(e.target.value)}
+                 onChange={handleChange}
+                
                 required
                 className='text-black border-b border-black outline-none focus:outline-none items-center
                 justify-center w-[80%] ' />
@@ -38,7 +74,8 @@ const Login = () => {
                 <div className='flex flex-row gap-6 mt-9'>
                 <label htmlFor='password' className='text-4xl'><i class="zmdi zmdi-lock" ></i></label>
                 <input type="password" name='password' id='password' autoComplete='off' placeholder='Your Password'
-                 value={password} onChange={(e)=>setPassword(e.target.value)}
+                 
+                 onChange={handleChange}
                  required
                 className='text-black border-b border-black outline-none focus:outline-none items-center
                 justify-center w-[80%] ' />

@@ -1,0 +1,12 @@
+.unitBox
+{
+    width:75px;
+    height:75px;
+    /* background-color:blue; */
+}
+.mat
+{
+    display: grid;
+    grid-template: repeat(6,0fr) / repeat(6,0fr);
+    border-style: dotted;
+}

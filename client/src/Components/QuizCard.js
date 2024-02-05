@@ -9,7 +9,7 @@ const QuizCard = () => {
         <div className="theme-bg-base shadow-lg rounded-lg h-[150px] w-[50%] mt-8 transform hover:scale-105 transition-transform duration-300">
           <div className="flex flex-row items-center gap-4 mt-4 mx-6">
             <LuBrainCircuit size={38} color="black" />
-            <h2 className="font-bold text-3xl text-black">Quiz Me!</h2>
+            <h2 className="font-bold text-3xl text-black"><a  href="/Basic_Settings">Create Quiz</a></h2>
           </div>
           <p className="mt-6 mx-6 text-black">
             Challenge yourself with a quiz on a topic of your choice.
