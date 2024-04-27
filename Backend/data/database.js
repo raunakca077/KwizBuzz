@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports.connectDB=()=>{
 mongoose.connect(process.env.MONGO_URI,{
     dbName:"quizDB",
-    // useNewUrlParser:true,
+    useNewUrlParser:true,
     //  useCreateIndex:true,
     // useUnifiedTopology:true
 })

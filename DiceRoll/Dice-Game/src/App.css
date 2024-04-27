@@ -1,0 +1,28 @@
+.design1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f39c12; /* Orange color, adjust as needed */
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px; /* Adjust width as needed */
+  height: 100px;
+  /* margin: 0 auto 20px; Center the indicator and add margin bottom */
+  position: relative;
+  overflow: hidden; /* Ensure text doesn't overflow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+  background-image: linear-gradient(135deg, #f39c12, #e74c3c); /* Gradient background */
+}
+
+.winner-name {
+  opacity: 0;
+  color: #af6d01;
+  transition: opacity 12s;
+}
+
+.winner-name.show {
+  opacity: 1;
+}
+
+
